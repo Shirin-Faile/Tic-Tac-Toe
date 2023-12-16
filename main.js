@@ -26,7 +26,7 @@ $(() => {
     };
 
     const updateGameInfo = () => {
-        $('#game-info').text(`Player ${currentPlayer}'s turn`);
+        $('#player-info').text(`Player ${currentPlayer}'s turn`);
     };
 
     const checkWin = () => {
@@ -54,7 +54,7 @@ $(() => {
     const announceWinner = () => {
         gameActive = false;
         $('.square').off('click');
-        $('#game-info').text(`Player ${currentPlayer} wins!`);
+        $('#player-info').text(`Player ${currentPlayer} wins!`);
         wins[currentPlayer]++;
         losses[currentPlayer === 'X' ? 'O' : 'X']++;
         updateScoreboard();
@@ -63,7 +63,7 @@ $(() => {
     const announceDraw = () => {
         gameActive = false;
         $('.square').off('click');
-        $('#game-info').text("It's a draw!");
+        $('#player-info').text("It's a draw!");
         losses.X++;
         losses.O++;
         updateScoreboard();
