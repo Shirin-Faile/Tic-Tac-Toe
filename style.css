@@ -1,3 +1,7 @@
+:root {
+    --text-color: #ffffff;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,14 +11,14 @@ html {
 }
 
 body {
-    color: #ffffff;
+    color: var(--text-color);
     background-color: #14213d;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin: 50px;
     padding: 0;
 }
 
@@ -47,19 +51,33 @@ header {
     border: 2px solid black;
     width: 80px;
     height: 80px;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+.animate {
+    transform: scale(1.1);
 }
 
 #scoreboard {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #player-info {
     margin-top: 20px;
     font-size: 18px;
+}
+
+#toggleAIButton {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #replay-button {
@@ -69,11 +87,39 @@ header {
     cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+#muteButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.no-background {
+    background: none;
+    border: none;
+}
+
+@media screen and (min-width: 600px) {
+
+        .board {
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+        }
 
         #scoreboard {
             flex-direction: column;
             align-items: center;
-            font-size: 16px;
+            font-size: 20px;
         }
+
 }
